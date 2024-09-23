@@ -42,7 +42,7 @@ public class FireworkArrow extends EnchantedArrow {
                 Color.fromRGB(0xFF00FF)).withColor(Color.ORANGE).withColor(Color.fromRGB(0x3E89FF));
         b.trail(true);
         b.with(type[(Math.min(getLevel(), 4)) - 1]);
-        final Firework f = (Firework) l.getWorld().spawnEntity(l, EntityType.FIREWORK);
+        final Firework f = (Firework) l.getWorld().spawnEntity(l, EntityType.FIREWORK_ROCKET);
         FireworkMeta d = f.getFireworkMeta();
         d.setPower(0);
         d.addEffect(b.build());

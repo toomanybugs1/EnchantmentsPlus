@@ -27,7 +27,7 @@ import de.geolykt.enchantments_plus.enums.Hand;
 import de.geolykt.enchantments_plus.util.Tool;
 import de.geolykt.enchantments_plus.util.Utilities;
 
-import static org.bukkit.potion.PotionEffectType.FAST_DIGGING;
+import static org.bukkit.potion.PotionEffectType.HASTE;
 
 public class Haste extends CustomEnchantment {
 
@@ -49,7 +49,7 @@ public class Haste extends CustomEnchantment {
 
     @Override
     public boolean onScanHands(Player player, int level, boolean usedHand) {
-        Utilities.addPotionNonflicker(player, FAST_DIGGING, 610, (int) Math.round(level * power));
+        Utilities.addPotionNonflicker(player, HASTE, 610, (int) Math.round(level * power));
         player.setMetadata("ze.haste", new FixedMetadataValue(Storage.plugin, System.currentTimeMillis()));
         return false;
     }

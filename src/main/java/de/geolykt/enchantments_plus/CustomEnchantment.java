@@ -440,7 +440,7 @@ public abstract class CustomEnchantment implements Comparable<CustomEnchantment>
         }
 
         for (Map.Entry<Enchantment, Integer> set : enchs.entrySet()) {
-            if (!(set.getKey().equals(Enchantment.DURABILITY) && (duraLevel = set.getValue()) == 0)) {
+            if (!(set.getKey().equals(Enchantment.UNBREAKING) && (duraLevel = set.getValue()) == 0)) {
                 containsNormal = true;
             } else {
                 containsHidden = true;
@@ -450,12 +450,12 @@ public abstract class CustomEnchantment implements Comparable<CustomEnchantment>
             if (stackType == ENCHANTED_BOOK) {
                 assert bookMeta != null;
                 if (duraLevel == 0) {
-                    bookMeta.removeStoredEnchant(org.bukkit.enchantments.Enchantment.DURABILITY);
+                    bookMeta.removeStoredEnchant(org.bukkit.enchantments.Enchantment.UNBREAKING);
                 }
                 bookMeta.removeItemFlags(ItemFlag.HIDE_ENCHANTS);
             } else {
                 if (duraLevel == 0) {
-                    itemMeta.removeEnchant(Enchantment.DURABILITY);
+                    itemMeta.removeEnchant(Enchantment.UNBREAKING);
                 }
                 itemMeta.removeItemFlags(ItemFlag.HIDE_ENCHANTS);
             }
@@ -466,10 +466,10 @@ public abstract class CustomEnchantment implements Comparable<CustomEnchantment>
                 if (bookMeta == null) {
                     return;
                 }
-                bookMeta.addStoredEnchant(org.bukkit.enchantments.Enchantment.DURABILITY, 0, true);
+                bookMeta.addStoredEnchant(org.bukkit.enchantments.Enchantment.UNBREAKING, 0, true);
                 bookMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
             } else {
-                itemMeta.addEnchant(Enchantment.DURABILITY, 0, true);
+                itemMeta.addEnchant(Enchantment.UNBREAKING, 0, true);
                 itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
             }
         }

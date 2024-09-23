@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-import static org.bukkit.potion.PotionEffectType.CONFUSION;
+import static org.bukkit.potion.PotionEffectType.NAUSEA;
 import static org.bukkit.potion.PotionEffectType.HUNGER;
 
 public class Toxic extends CustomEnchantment {
@@ -73,7 +73,7 @@ public class Toxic extends CustomEnchantment {
         if (!(evt.getEntity() instanceof LivingEntity) ||
             !ADAPTER.attackEntity((LivingEntity) evt.getEntity(), (Player) evt.getDamager(), 0, false)) {
             final int value = (int) Math.round(level * power);
-            Utilities.addPotion((LivingEntity) evt.getEntity(), CONFUSION, 80 + 60 * value, 4);
+            Utilities.addPotion((LivingEntity) evt.getEntity(), NAUSEA, 80 + 60 * value, 4);
             Utilities.addPotion((LivingEntity) evt.getEntity(), HUNGER, 40 + 60 * value, 4);
             if (evt.getEntity() instanceof Player) {
                 Bukkit.getScheduler().scheduleSyncDelayedTask(Storage.plugin, () -> {

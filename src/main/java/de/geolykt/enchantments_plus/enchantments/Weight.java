@@ -93,11 +93,11 @@ public class Weight extends CustomEnchantment {
 
     @Override
     public boolean onScan(Player player, int level, boolean usedHand) {
-        if (player.hasPotionEffect(PotionEffectType.SLOW)) {
+        if (player.hasPotionEffect(PotionEffectType.SLOWNESS)) {
             return false;
         } else {
-            player.addPotionEffect(PotionEffectType.SLOW.createEffect(Integer.MAX_VALUE, (int) (level*power)));
-            player.addPotionEffect(PotionEffectType.INCREASE_DAMAGE.createEffect(Integer.MAX_VALUE, (int) (level*power)));
+            player.addPotionEffect(PotionEffectType.SLOWNESS.createEffect(Integer.MAX_VALUE, (int) (level*power)));
+            player.addPotionEffect(PotionEffectType.STRENGTH.createEffect(Integer.MAX_VALUE, (int) (level*power)));
             player.getPersistentDataContainer().set(ACTIVE, PersistentDataType.BYTE, (byte) 1);
             return true;
         }

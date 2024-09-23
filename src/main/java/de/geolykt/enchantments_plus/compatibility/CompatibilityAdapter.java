@@ -18,15 +18,15 @@
 package de.geolykt.enchantments_plus.compatibility;
 
 import static org.bukkit.potion.PotionEffectType.ABSORPTION;
-import static org.bukkit.potion.PotionEffectType.DAMAGE_RESISTANCE;
+import static org.bukkit.potion.PotionEffectType.RESISTANCE;
 import static org.bukkit.potion.PotionEffectType.DOLPHINS_GRACE;
-import static org.bukkit.potion.PotionEffectType.FAST_DIGGING;
+import static org.bukkit.potion.PotionEffectType.HASTE;
 import static org.bukkit.potion.PotionEffectType.FIRE_RESISTANCE;
-import static org.bukkit.potion.PotionEffectType.HEAL;
+import static org.bukkit.potion.PotionEffectType.INSTANT_HEALTH;
 import static org.bukkit.potion.PotionEffectType.HEALTH_BOOST;
-import static org.bukkit.potion.PotionEffectType.INCREASE_DAMAGE;
+import static org.bukkit.potion.PotionEffectType.STRENGTH;
 import static org.bukkit.potion.PotionEffectType.INVISIBILITY;
-import static org.bukkit.potion.PotionEffectType.JUMP;
+import static org.bukkit.potion.PotionEffectType.JUMP_BOOST;
 import static org.bukkit.potion.PotionEffectType.NIGHT_VISION;
 import static org.bukkit.potion.PotionEffectType.REGENERATION;
 import static org.bukkit.potion.PotionEffectType.SATURATION;
@@ -502,7 +502,7 @@ public class CompatibilityAdapter {
             if (ent.getType() == EntityType.CREEPER)
                 ((Creeper) newEnt).setPowered(!((Creeper) ent).isPowered());
             break;
-        case MUSHROOM_COW:
+        case MOOSHROOM:
             ((MushroomCow) newEnt).setVariant(MushroomCow.Variant.values()[rnd.nextInt(MushroomCow.Variant.values().length)]);
             break;
         default:
@@ -552,8 +552,8 @@ public class CompatibilityAdapter {
     // FIXME make this configurable
     public List<PotionEffectType> potionPotions() {
         return Arrays.asList(ABSORPTION,
-                DAMAGE_RESISTANCE, FIRE_RESISTANCE, SPEED, JUMP, INVISIBILITY, INCREASE_DAMAGE, HEALTH_BOOST, HEAL,
-                REGENERATION, NIGHT_VISION, SATURATION, FAST_DIGGING, WATER_BREATHING, DOLPHINS_GRACE);
+                RESISTANCE, FIRE_RESISTANCE, SPEED, JUMP_BOOST, INVISIBILITY, STRENGTH, HEALTH_BOOST, INSTANT_HEALTH,
+                REGENERATION, NIGHT_VISION, SATURATION, HASTE, WATER_BREATHING, DOLPHINS_GRACE);
     }
 
     // TODO what do these values even mean?
@@ -684,7 +684,7 @@ public class CompatibilityAdapter {
         }
         // chance that the item is broken is 1/(level+1)
         // So at level = 2 it's 33%, at level = 0 it's 100%, at level 1 it's 50%, at level = 3 it's 25%
-        if (ThreadLocalRandom.current().nextInt(1000) <= (1000/(stack.getEnchantmentLevel(Enchantment.DURABILITY)+1))) {
+        if (ThreadLocalRandom.current().nextInt(1000) <= (1000/(stack.getEnchantmentLevel(Enchantment.UNBREAKING)+1))) {
             ((Damageable)im).setDamage(((Damageable) im).getDamage() + damage);
             stack.setItemMeta(im);
         }

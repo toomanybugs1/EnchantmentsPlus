@@ -46,7 +46,7 @@ public class ShortCast extends CustomEnchantment {
 
     @Override
     public boolean onProjectileLaunch(ProjectileLaunchEvent evt, int level, boolean usedHand) {
-        if (evt.getEntity().getType() == EntityType.FISHING_HOOK) {
+        if (evt.getEntity().getType() == EntityType.FISHING_BOBBER) {
             evt.getEntity()
                .setVelocity(evt.getEntity().getVelocity().normalize().multiply((.8f / (level * power))));
         }

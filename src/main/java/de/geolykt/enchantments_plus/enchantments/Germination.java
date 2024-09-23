@@ -76,7 +76,7 @@ public class Germination extends CustomEnchantment implements AreaOfEffectable {
                             ADAPTER.grow(relativeBlock, player);
                         }
 
-                        CompatibilityAdapter.display(Utilities.getCenter(relativeBlock), Particle.VILLAGER_HAPPY,
+                        CompatibilityAdapter.display(Utilities.getCenter(relativeBlock), Particle.HAPPY_VILLAGER,
                                 25, 1f, .3f, .3f, .3f);
 
                         if (ThreadLocalRandom.current().nextInt(10) <= 3) {

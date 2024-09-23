@@ -91,8 +91,8 @@ public class AnvilMerge implements Listener {
             ((EnchantmentStorageMeta) rightItem.getItemMeta()).getStoredEnchants()
             : rightItem.getEnchantments();
 
-        int leftUnbLvl = lEnch.getOrDefault(Enchantment.DURABILITY, -1);
-        int rightUnbLvl = rEnch.getOrDefault(Enchantment.DURABILITY, -1);
+        int leftUnbLvl = lEnch.getOrDefault(Enchantment.UNBREAKING, -1);
+        int rightUnbLvl = rEnch.getOrDefault(Enchantment.UNBREAKING, -1);
 
         if(leftEnchantments.isEmpty() && rightEnchantments.isEmpty()) {
             return oldOutItem;
@@ -130,10 +130,10 @@ public class AnvilMerge implements Listener {
 
         if (leftUnbLvl * rightUnbLvl == 0 && leftUnbLvl < 1 && rightUnbLvl < 1) {
             if (oldOutItem.getType() == ENCHANTED_BOOK) {
-                ((EnchantmentStorageMeta)newOutMeta).removeStoredEnchant(Enchantment.DURABILITY);
+                ((EnchantmentStorageMeta)newOutMeta).removeStoredEnchant(Enchantment.UNBREAKING);
                 newOutMeta.removeItemFlags(ItemFlag.HIDE_ENCHANTS);
             } else {
-                newOutMeta.removeEnchant(Enchantment.DURABILITY);
+                newOutMeta.removeEnchant(Enchantment.UNBREAKING);
                 newOutMeta.removeItemFlags(ItemFlag.HIDE_ENCHANTS);
             }
         }
@@ -153,9 +153,9 @@ public class AnvilMerge implements Listener {
         }
         if (evt.getCurrentItem() != null && evt.getCurrentItem().getType() == ENCHANTED_BOOK) {
             EnchantmentStorageMeta bookMeta = (EnchantmentStorageMeta) evt.getCurrentItem().getItemMeta();
-            if (bookMeta.getStoredEnchants().containsKey(org.bukkit.enchantments.Enchantment.DURABILITY)
-                && bookMeta.getStoredEnchants().get(org.bukkit.enchantments.Enchantment.DURABILITY) == 0) {
-                bookMeta.removeStoredEnchant(org.bukkit.enchantments.Enchantment.DURABILITY);
+            if (bookMeta.getStoredEnchants().containsKey(org.bukkit.enchantments.Enchantment.UNBREAKING)
+                && bookMeta.getStoredEnchants().get(org.bukkit.enchantments.Enchantment.UNBREAKING) == 0) {
+                bookMeta.removeStoredEnchant(org.bukkit.enchantments.Enchantment.UNBREAKING);
                 evt.getCurrentItem().setItemMeta(bookMeta);
             }
         }
@@ -174,15 +174,15 @@ public class AnvilMerge implements Listener {
 
         if (anvilInv.getItem(0) != null && anvilInv.getItem(0).getType() == ENCHANTED_BOOK) {
             EnchantmentStorageMeta bookMeta = (EnchantmentStorageMeta) anvilInv.getItem(0).getItemMeta();
-            if (!bookMeta.getStoredEnchants().containsKey(org.bukkit.enchantments.Enchantment.DURABILITY)) {
-                bookMeta.addStoredEnchant(org.bukkit.enchantments.Enchantment.DURABILITY, 0, true);
+            if (!bookMeta.getStoredEnchants().containsKey(org.bukkit.enchantments.Enchantment.UNBREAKING)) {
+                bookMeta.addStoredEnchant(org.bukkit.enchantments.Enchantment.UNBREAKING, 0, true);
                 anvilInv.getItem(0).setItemMeta(bookMeta);
             }
         }
         if (anvilInv.getItem(1) != null && anvilInv.getItem(1).getType() == ENCHANTED_BOOK) {
             EnchantmentStorageMeta bookMeta = (EnchantmentStorageMeta) anvilInv.getItem(1).getItemMeta();
-            if (!bookMeta.getStoredEnchants().containsKey(org.bukkit.enchantments.Enchantment.DURABILITY)) {
-                bookMeta.addStoredEnchant(org.bukkit.enchantments.Enchantment.DURABILITY, 0, true);
+            if (!bookMeta.getStoredEnchants().containsKey(org.bukkit.enchantments.Enchantment.UNBREAKING)) {
+                bookMeta.addStoredEnchant(org.bukkit.enchantments.Enchantment.UNBREAKING, 0, true);
                 anvilInv.getItem(1).setItemMeta(bookMeta);
             }
         }

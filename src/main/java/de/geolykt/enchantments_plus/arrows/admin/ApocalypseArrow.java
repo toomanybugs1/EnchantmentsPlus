@@ -34,7 +34,7 @@ import de.geolykt.enchantments_plus.arrows.EnchantedArrow;
 import static org.bukkit.Material.FIRE;
 import static org.bukkit.entity.EntityType.BLAZE;
 import static org.bukkit.potion.PotionEffectType.ABSORPTION;
-import static org.bukkit.potion.PotionEffectType.HARM;
+import static org.bukkit.potion.PotionEffectType.INSTANT_DAMAGE;;
 
 public class ApocalypseArrow extends EnchantedArrow {
 
@@ -66,14 +66,14 @@ public class ApocalypseArrow extends EnchantedArrow {
                         v.setZ((Math.cos(c) / 2));
                     }
                     ent.setVelocity(v.multiply(1.5));
-                    TNTPrimed prime = (TNTPrimed) arrow.getWorld().spawnEntity(l, EntityType.PRIMED_TNT);
+                    TNTPrimed prime = (TNTPrimed) arrow.getWorld().spawnEntity(l, EntityType.TNT);
                     prime.setFuseTicks(200);
                     prime.setYield(config.explosionBlockBreak() ? 4 : 0);
                     Blaze blaze = (Blaze) arrow.getWorld().spawnEntity(l, BLAZE);
                     blaze.addPotionEffect(new PotionEffect(ABSORPTION, 150, 100000));
-                    blaze.addPotionEffect(new PotionEffect(HARM, 10000, 1));
+                    blaze.addPotionEffect(new PotionEffect(INSTANT_DAMAGE, 10000, 1));
                     if (config.explosionBlockBreak()) {
-                        Entity crystal = arrow.getWorld().spawnEntity(l, EntityType.ENDER_CRYSTAL);
+                        Entity crystal = arrow.getWorld().spawnEntity(l, EntityType.ENDER_PEARL);
                         ent.addPassenger(prime);
                         crystal.addPassenger(blaze);
                         prime.addPassenger(crystal);

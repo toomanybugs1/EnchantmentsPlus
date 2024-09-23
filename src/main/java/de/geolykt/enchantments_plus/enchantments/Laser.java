@@ -94,7 +94,7 @@ public class Laser extends CustomEnchantment {
             tempLoc.setY(playLoc.getY() + (i * ((target.getY() - playLoc.getY()) / (d * 5))));
             tempLoc.setZ(playLoc.getZ() + (i * ((target.getZ() - playLoc.getZ()) / (d * 5))));
 
-            player.getWorld().spawnParticle(Particle.REDSTONE, tempLoc, 1, new Particle.DustOptions(laserColor, 0.5f));
+            player.getWorld().spawnParticle(Particle.DUST, tempLoc, 1, new Particle.DustOptions(laserColor, 0.5f));
 
             World w = playLoc.getWorld();
             assert w != null;

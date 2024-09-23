@@ -25,7 +25,7 @@ import de.geolykt.enchantments_plus.enums.Hand;
 import de.geolykt.enchantments_plus.util.Tool;
 import de.geolykt.enchantments_plus.util.Utilities;
 
-import static org.bukkit.potion.PotionEffectType.JUMP;
+import static org.bukkit.potion.PotionEffectType.JUMP_BOOST;
 
 public class Jump extends CustomEnchantment {
 
@@ -48,7 +48,7 @@ public class Jump extends CustomEnchantment {
 
     @Override
     public boolean onScan(Player player, int level, boolean usedHand) {
-        Utilities.addPotionNonflicker(player, JUMP, 610, (int) Math.round(level * power));
+        Utilities.addPotionNonflicker(player, JUMP_BOOST, 610, (int) Math.round(level * power));
         return true;
     }
 }

@@ -86,7 +86,7 @@ public class Watcher implements Listener {
                     tempLoc.setX(play.getX() + (i * ((target.getX() - play.getX()) / (d * 10))));
                     tempLoc.setY(play.getY() + (i * ((target.getY() - play.getY()) / (d * 10))));
                     tempLoc.setZ(play.getZ() + (i * ((target.getZ() - play.getZ()) / (d * 10))));
-                    tempLoc.getWorld().spawnParticle(Particle.REDSTONE, tempLoc, 1,
+                    tempLoc.getWorld().spawnParticle(Particle.DUST, tempLoc, 1,
                             new Particle.DustOptions(Color.RED, 0.75f));
                     for (Entity ent : Bukkit.getWorld(play.getWorld().getName()).getEntities()) {
                         if (ent.getLocation().distance(tempLoc) < .75) {
@@ -285,7 +285,7 @@ public class Watcher implements Listener {
                         case MEADOR:
                             player.removePotionEffect(PotionEffectType.SPEED);
                         case JUMP:
-                            player.removePotionEffect(PotionEffectType.JUMP);
+                            player.removePotionEffect(PotionEffectType.JUMP_BOOST);
                             break;
                         case SPEED:
                             player.removePotionEffect(PotionEffectType.SPEED);
@@ -295,8 +295,8 @@ public class Watcher implements Listener {
                             break;
                         case WEIGHT:
                             if (player.getPersistentDataContainer().has(Weight.ACTIVE, PersistentDataType.BYTE)) {
-                                player.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
-                                player.removePotionEffect(PotionEffectType.SLOW);
+                                player.removePotionEffect(PotionEffectType.STRENGTH);
+                                player.removePotionEffect(PotionEffectType.SLOWNESS);
                                 player.getPersistentDataContainer().remove(Weight.ACTIVE);
                             }
                             break;

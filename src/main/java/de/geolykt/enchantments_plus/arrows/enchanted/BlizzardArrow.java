@@ -26,7 +26,7 @@ import de.geolykt.enchantments_plus.compatibility.CompatibilityAdapter;
 import de.geolykt.enchantments_plus.util.AreaOfEffectable;
 import de.geolykt.enchantments_plus.util.Utilities;
 
-import static org.bukkit.potion.PotionEffectType.SLOW;
+import static org.bukkit.potion.PotionEffectType.SLOWNESS;
 
 public class BlizzardArrow extends EnchantedArrow {
 
@@ -50,7 +50,7 @@ public class BlizzardArrow extends EnchantedArrow {
         for (Entity e : arrow.getNearbyEntities(aoe, aoe, aoe)) {
             if (e instanceof LivingEntity && !e.equals(arrow.getShooter())
                     && Storage.COMPATIBILITY_ADAPTER.attackEntity((LivingEntity) e, (Player) arrow.getShooter(), 0, false)) {
-                Utilities.addPotion((LivingEntity) e, SLOW, 50 + (int) (getLevel() * getPower() * 50),
+                Utilities.addPotion((LivingEntity) e, SLOWNESS, 50 + (int) (getLevel() * getPower() * 50),
                         (int) Math.round(getLevel() * getPower() * 2));
             }
         }

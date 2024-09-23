@@ -50,7 +50,7 @@ public class Magnetism extends CustomEnchantment implements AreaOfEffectable {
     public boolean onFastScan(Player player, int level, boolean usedHand) {
         int radius = (int) getAOESize(level);
         for (Entity e : player.getNearbyEntities(radius, radius, radius)) {
-            if (e.getType().equals(EntityType.DROPPED_ITEM) && e.getTicksLived() > 160) {
+            if (e.getType().equals(EntityType.ITEM) && e.getTicksLived() > 160) {
                 if (e instanceof Item && ((Item)e).getPickupDelay() > 0) {
                     continue;
                 }

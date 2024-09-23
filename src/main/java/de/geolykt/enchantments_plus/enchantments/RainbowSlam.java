@@ -82,7 +82,7 @@ public class RainbowSlam extends CustomEnchantment {
                     loc.setZ(loc.getZ() + Math.cos(Math.toRadians(t)) * t / 330);
 
                     ThreadLocalRandom rand = ThreadLocalRandom.current();
-                    ent.getWorld().spawnParticle(Particle.REDSTONE, loc, 1,
+                    ent.getWorld().spawnParticle(Particle.DUST, loc, 1,
                         new Particle.DustOptions(Color.fromRGB(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256)), 1.0f));
                     loc.setY(loc.getY() + 1.3);
                     ent.setVelocity(loc.toVector().subtract(ent.getLocation().toVector()));
@@ -100,7 +100,7 @@ public class RainbowSlam extends CustomEnchantment {
                     applied.set(true);
                     rainbowSlamNoFallEntities.remove(ent);
                     ADAPTER.attackEntity(ent, evt.getPlayer(), level * power, false);
-                    ent.getWorld().spawnParticle(Particle.BLOCK_DUST, Utilities.getCenter(l), 20, evt.getPlayer().getLocation().getBlock().getBlockData());
+                    ent.getWorld().spawnParticle(Particle.DUST_PILLAR, Utilities.getCenter(l), 20, evt.getPlayer().getLocation().getBlock().getBlockData());
                 }
             }, 35 + (i * 5));
         }

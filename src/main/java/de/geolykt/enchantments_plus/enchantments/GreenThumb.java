@@ -83,7 +83,7 @@ public class GreenThumb extends CustomEnchantment implements AreaOfEffectable {
                         }
                         if (applied) { // Display particles and damage armor
                             CompatibilityAdapter.display(Utilities.getCenter(centerBlock.getRelative(x, y + 1, z)),
-                                Particle.VILLAGER_HAPPY, 20, 1f, .3f, .3f, .3f);
+                                Particle.HAPPY_VILLAGER, 20, 1f, .3f, .3f, .3f);
                             if (ThreadLocalRandom.current().nextInt(50) > 42 && level != 10) {
                                 for (EquipmentSlot slot : SLOTS) {
                                     final ItemStack s = player.getInventory().getItem(slot);

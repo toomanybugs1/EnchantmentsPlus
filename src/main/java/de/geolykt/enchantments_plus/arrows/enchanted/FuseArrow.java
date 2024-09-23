@@ -53,7 +53,7 @@ public class FuseArrow extends EnchantedArrow {
                 Bukkit.getServer().getPluginManager().callEvent(event);
                 if (!event.isCancelled()) {
                     hitLoc.getBlock().setType(AIR);
-                    hitLoc.getWorld().spawnEntity(hitLoc, EntityType.PRIMED_TNT);
+                    hitLoc.getWorld().spawnEntity(hitLoc, EntityType.TNT);
                     die();
                 }
                 return;
@@ -69,10 +69,10 @@ public class FuseArrow extends EnchantedArrow {
             if (evt.getEntity().getType().equals(EntityType.CREEPER)) {
                 Creeper c = (Creeper) evt.getEntity();
                 Storage.COMPATIBILITY_ADAPTER.explodeCreeper(c, Config.get(evt.getDamager().getWorld()).explosionBlockBreak());
-            } else if (evt.getEntity().getType().equals(EntityType.MUSHROOM_COW)) {
+            } else if (evt.getEntity().getType().equals(EntityType.MOOSHROOM)) {
                 MushroomCow c = (MushroomCow) evt.getEntity();
                 if (c.isAdult()) {
-                    CompatibilityAdapter.display(l, Particle.EXPLOSION_LARGE, 1, 1f, 0, 0, 0);
+                    CompatibilityAdapter.display(l, Particle.EXPLOSION, 1, 1f, 0, 0, 0);
                     evt.getEntity().remove();
                     l.getWorld().spawnEntity(l, EntityType.COW);
                     l.getWorld().dropItemNaturally(l, new ItemStack(Material.RED_MUSHROOM, 5));

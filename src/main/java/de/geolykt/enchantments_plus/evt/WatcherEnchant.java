@@ -18,7 +18,7 @@
 package de.geolykt.enchantments_plus.evt;
 
 import static org.bukkit.Material.AIR;
-import static org.bukkit.potion.PotionEffectType.FAST_DIGGING;
+import static org.bukkit.potion.PotionEffectType.HASTE;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -519,7 +519,7 @@ public final class WatcherEnchant implements Listener {
         });
 
         if (player.hasMetadata("ze.haste") && (player.getMetadata("ze.haste").get(0).asLong() < System.currentTimeMillis() - 1000)) {
-            player.removePotionEffect(FAST_DIGGING);
+            player.removePotionEffect(HASTE);
             player.removeMetadata("ze.haste", Storage.plugin);
         }
     }

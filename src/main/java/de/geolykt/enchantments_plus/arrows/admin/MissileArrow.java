@@ -66,7 +66,7 @@ public class MissileArrow extends EnchantedArrow {
                     target.getWorld().playSound(loc, Sound.ENTITY_WITHER_SPAWN, 10f, .1f);
                 }
                 if (i1 >= ((int) (d * 5) + 9) || loc2.getBlock().getType() != AIR) {
-                    CompatibilityAdapter.display(loc2, Particle.EXPLOSION_HUGE, 10, 0.1f, 0, 0, 0);
+                    CompatibilityAdapter.display(loc2, Particle.EXPLOSION_EMITTER, 10, 0.1f, 0, 0, 0);
                     CompatibilityAdapter.display(loc, Particle.FLAME, 175, 1f, 0, 0, 0);
                     loc2.setY(loc2.getY() + 5);
                     loc2.getWorld().createExplosion(loc2.getX(), loc2.getY(), loc2.getZ(), 10,

@@ -28,7 +28,7 @@ import de.geolykt.enchantments_plus.enums.Hand;
 import de.geolykt.enchantments_plus.util.Tool;
 import de.geolykt.enchantments_plus.util.Utilities;
 
-import static org.bukkit.potion.PotionEffectType.SLOW;
+import static org.bukkit.potion.PotionEffectType.SLOWNESS;
 
 public class IceAspect extends CustomEnchantment {
 
@@ -50,7 +50,7 @@ public class IceAspect extends CustomEnchantment {
 
     @Override
     public boolean onEntityHit(EntityDamageByEntityEvent evt, int level, boolean usedHand) {
-        Utilities.addPotion((LivingEntity) evt.getEntity(), SLOW,
+        Utilities.addPotion((LivingEntity) evt.getEntity(), SLOWNESS,
             (int) Math.round(40 + level * power * 40), (int) Math.round(power * level * 2));
         CompatibilityAdapter.display(Utilities.getCenter(evt.getEntity().getLocation()), Particle.CLOUD, 10, .1f, 1f, 2f, 1f);
         return true;

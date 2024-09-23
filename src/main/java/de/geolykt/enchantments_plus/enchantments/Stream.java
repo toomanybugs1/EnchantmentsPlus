@@ -39,8 +39,8 @@ public class Stream extends CustomEnchantment {
     private static final Particle[] trailTypes = {
         Particle.CLOUD,
         Particle.CRIT,
-        Particle.VILLAGER_HAPPY,
-        Particle.REDSTONE,
+        Particle.HAPPY_VILLAGER,
+        Particle.DUST,
         Particle.HEART};
     public static final int ID = 74;
 
@@ -123,7 +123,7 @@ public class Stream extends CustomEnchantment {
                     break;
                 case 3:
                     ThreadLocalRandom rand = ThreadLocalRandom.current();
-                    player.getWorld().spawnParticle(Particle.REDSTONE, player.getLocation(), 2,
+                    player.getWorld().spawnParticle(Particle.DUST, player.getLocation(), 2,
                         new Particle.DustOptions(Color.fromRGB(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256)), 1.0f));
             }
             if (b != 3) {

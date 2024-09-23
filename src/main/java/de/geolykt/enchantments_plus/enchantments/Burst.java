@@ -69,7 +69,7 @@ public class Burst extends CustomEnchantment {
         final ItemStack hand = Utilities.usedStack(player, usedHand);
         boolean result = false;
         if (evt.getAction().equals(RIGHT_CLICK_AIR) || evt.getAction().equals(RIGHT_CLICK_BLOCK)) {
-            boolean infinity = hand.containsEnchantment(Enchantment.ARROW_INFINITE) && Utilities.hasItem(player, Material.ARROW, 1);
+            boolean infinity = hand.containsEnchantment(Enchantment.INFINITY) && Utilities.hasItem(player, Material.ARROW, 1);
             for (int i = 0; i <= (int) Math.round((power * level) + 1); i++) {
                 if (infinity || Utilities.removeItem(player, Material.ARROW, 1)) {
                     result = true;
@@ -77,7 +77,7 @@ public class Burst extends CustomEnchantment {
                         Arrow arrow = player.getWorld().spawnArrow(player.getEyeLocation(),
                                 player.getLocation().getDirection(), 1, 0);
                         arrow.setShooter(player);
-                        if (hand.containsEnchantment(Enchantment.ARROW_FIRE)) {
+                        if (hand.containsEnchantment(Enchantment.FLAME)) {
                             arrow.setFireTicks(Integer.MAX_VALUE);
                         }
                         arrow.setVelocity(player.getLocation().getDirection().normalize().multiply(1.7));

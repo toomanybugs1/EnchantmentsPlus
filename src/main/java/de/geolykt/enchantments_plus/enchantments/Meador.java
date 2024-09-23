@@ -47,7 +47,7 @@ public class Meador extends CustomEnchantment {
 
     @Override
     public boolean onScan(Player player, int level, boolean usedHand) {
-        player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 100, (int) (level * power) + 2));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP_BOOST, 100, (int) (level * power) + 2));
         player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 100, (int) (level * power) + 2));
         return true;
     }

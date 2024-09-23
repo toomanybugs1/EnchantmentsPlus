@@ -17,7 +17,7 @@
  */
 package de.geolykt.enchantments_plus;
 
-import static org.bukkit.potion.PotionEffectType.FAST_DIGGING;
+import static org.bukkit.potion.PotionEffectType.HASTE;
 
 import java.io.File;
 
@@ -89,7 +89,7 @@ public class Enchantments_plus extends JavaPlugin {
         Reveal.GLOWING_BLOCKS.forEach((loc, ent) -> ent.remove());
         for (Player player : Bukkit.getOnlinePlayers()) {
             if (player.hasMetadata("ze.haste")) {
-                player.removePotionEffect(FAST_DIGGING);
+                player.removePotionEffect(HASTE);
                 player.removeMetadata("ze.haste", Storage.plugin);
             }
         }
