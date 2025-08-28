@@ -1,6 +1,6 @@
 ## TooManyBugs Fork
 
-Hello, I periodically update this fork to work with newer versions of spigot. Feel free to use a release as I post them. I might even fix a bug or two if you make an issue!
+Hello, I periodically update this fork to work with newer versions of spigot. Feel free to use a release as I post them. I might even fix a bug or two if you make an issue! (Or if there's a particular version I don't have that you're wanting, I might be able to get a jar for it).
 
 ## Product End-of-life notice
 
@@ -142,3 +142,4 @@ The current EnchantmentsPlus API is however entirely incompatible with the new Z
   </ul>
  </li>
 </ul>
+
