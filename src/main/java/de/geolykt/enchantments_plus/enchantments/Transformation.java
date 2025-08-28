@@ -91,7 +91,7 @@ public class Transformation extends CustomEnchantment {
 
                     evt.getEntity().remove();
 
-                    AttributeInstance maxHealth = newEnt.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+                    AttributeInstance maxHealth = newEnt.getAttribute(Attribute.MAX_HEALTH);
                     assert maxHealth != null;
                     newEnt.setHealth(Math.max(1, maxHealth.getValue()));
 

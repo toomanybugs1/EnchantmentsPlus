@@ -56,7 +56,7 @@ public class Siphon extends CustomEnchantment {
                 && ADAPTER.attackEntity((LivingEntity) evt.getEntity(), (Player) evt.getDamager(), 0, false)) {
             Player player = (Player) evt.getDamager();
             double difference = (0.17 * level * power) * (enchantmentConfiguration.siphonUseFinalDamage() ? evt.getFinalDamage() : evt.getDamage());
-            AttributeInstance maxHealth = player.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+            AttributeInstance maxHealth = player.getAttribute(Attribute.MAX_HEALTH);
             assert maxHealth != null;
             player.setHealth(player.getHealth() + Math.min(difference, maxHealth.getValue() - player.getHealth()));
         }

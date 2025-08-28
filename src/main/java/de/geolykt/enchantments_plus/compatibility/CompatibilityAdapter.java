@@ -56,6 +56,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Particle;
+import org.bukkit.Registry;
 import org.bukkit.Tag;
 import org.bukkit.block.Biome;
 import org.bukkit.block.Block;
@@ -200,7 +201,7 @@ public class CompatibilityAdapter {
     private EnumSet<Material> lumberTrunkBlocks;
     private EnumSet<Material> lumberAllowBlocks;
 
-    private EnumSet<Biome> dryBiomes;
+    private ArrayList<Biome> dryBiomes;
 
     private EnumMap<Material, Material> spectralMaterialConversion;
     private EnumMap<EntityType, EntityType> transformationMap;
@@ -325,11 +326,11 @@ public class CompatibilityAdapter {
                 e.printStackTrace();
             }
         }
-        dryBiomes = EnumSet.noneOf(Biome.class);
+        dryBiomes = new ArrayList<Biome>();
         for (String s : config.getStringList("dryBiomes")) {
             try {
-                dryBiomes.add(Biome.valueOf(s));
-            } catch (IllegalArgumentException e) {
+                dryBiomes.add(Registry.BIOME.get(NamespacedKey.fromString(s.toLowerCase())));
+            } catch (NullPointerException e) {
                 plugin.getLogger().warning(s + " is not a known biome (located within the dryBiomes list); Skipping entry.");
             }
         }
@@ -435,7 +436,7 @@ public class CompatibilityAdapter {
         return ores;
     }
 
-    public EnumSet<Biome> dryBiomes() {
+    public ArrayList<Biome> dryBiomes() {
         return dryBiomes;
     }
 

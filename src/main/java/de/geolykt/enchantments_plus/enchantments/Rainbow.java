@@ -59,13 +59,13 @@ public class Rainbow extends CustomEnchantment {
         Material dropMaterial;
         if (Tag.SMALL_FLOWERS.isTagged(evt.getBlock().getType())) {
             dropMaterial = Tag.SMALL_FLOWERS.getValues().toArray(new Material[0])[ThreadLocalRandom.current().nextInt(Tag.SMALL_FLOWERS.getValues().size())];
-        } else if (Tag.TALL_FLOWERS.isTagged(evt.getBlock().getType())) {
-            dropMaterial = Tag.TALL_FLOWERS.getValues().toArray(new Material[0])[ThreadLocalRandom.current().nextInt(Tag.TALL_FLOWERS.getValues().size())];
+        } else if (Tag.FLOWERS.isTagged(evt.getBlock().getType())) {
+            dropMaterial = Tag.FLOWERS.getValues().toArray(new Material[0])[ThreadLocalRandom.current().nextInt(Tag.FLOWERS.getValues().size())];
         } else {
             return false;
         }
         evt.setCancelled(true);
-        if (Tag.TALL_FLOWERS.isTagged(evt.getBlock().getRelative(DOWN).getType())) {
+        if (Tag.FLOWERS.isTagged(evt.getBlock().getRelative(DOWN).getType())) {
             evt.getBlock().getRelative(DOWN).setType(AIR);
         }
         evt.getBlock().setType(AIR);
