@@ -1,3 +1,7 @@
+## TooManyBugs Fork
+
+Hello, I periodically update this fork to work with newer versions of spigot. Feel free to use a release as I post them. I might even fix a bug or two if you make an issue!
+
 ## Product End-of-life notice
 
 Development has stalled and is nearing it's end. Please refrain from using this plugin as it will recieve **no official update releases**. Bugs might get fixed if they get reported, but one needs to build from source to receive these updates.
